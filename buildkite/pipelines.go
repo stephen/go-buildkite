@@ -42,7 +42,7 @@ type Pipeline struct {
 	BuildsURL  *string    `json:"builds_url,omitempty" yaml:"builds_url,omitempty"`
 	BadgeURL   *string    `json:"badge_url,omitempty" yaml:"badge_url,omitempty"`
 	CreatedAt  *Timestamp `json:"created_at,omitempty" yaml:"created_at,omitempty"`
-
+	
 	ScheduledBuildsCount *int `json:"scheduled_builds_count,omitempty" yaml:"scheduled_builds_count,omitempty"`
 	RunningBuildsCount   *int `json:"running_builds_count,omitempty" yaml:"running_builds_count,omitempty"`
 	ScheduledJobsCount   *int `json:"scheduled_jobs_count,omitempty" yaml:"scheduled_jobs_count,omitempty"`
@@ -53,7 +53,8 @@ type Pipeline struct {
 	Provider *Provider `json:"provider,omitempty" yaml:"provider,omitempty"`
 
 	// build steps
-	Steps []*Step `json:"steps,omitempty" yaml:"steps,omitempty"`
+	Steps []*Step                `json:"steps,omitempty" yaml:"steps,omitempty"`
+	Env   map[string]interface{} `json:"env,omitempty" yaml:"env,omitempty"`
 }
 
 // Step represents a build step in buildkites build pipeline
